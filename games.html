@@ -2,16 +2,22 @@
 layout: default
 title: Games
 ---
-<div class="section-page">
-  <h1>Games</h1>
-  <div class="grid">
-    {% for game in site.games %}
-    <a href="{{ game.url | relative_url }}" class="card">
-      <h3>{{ game.title }}</h3>
-      <p>{{ game.excerpt | strip_html | truncatewords: 30 }}</p>
-      {% if game.date %}
-      <small>{{ game.date | date: "%B %Y" }}</small>
+<div class="list-page">
+  <h1>🎮 Games</h1>
+  <div class="project-grid">
+    {% assign sorted_games = site.games | sort: 'date' | reverse %}
+    {% for game in sorted_games %}
+    <a href="{{ game.url | relative_url }}" class="project-card">
+      {% if game.thumbnail %}
+      <img src="{{ game.thumbnail | relative_url }}" alt="{{ game.title }}">
       {% endif %}
+      <div class="project-card-content">
+        <h3>{{ game.title }}</h3>
+        <p>{{ game.description | default: game.excerpt | strip_html | truncatewords: 30 }}</p>
+        {% if game.date %}
+        <p class="date">{{ game.date | date: "%B %Y" }}</p>
+        {% endif %}
+      </div>
     </a>
     {% endfor %}
   </div>

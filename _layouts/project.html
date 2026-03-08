@@ -1,14 +1,22 @@
 ---
 layout: default
 ---
-<article class="project">
-  <header>
+<article class="project-page">
+  <header class="project-header">
     <h1>{{ page.title }}</h1>
-    {% if page.date %}
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+    {% if page.description %}
+    <p style="font-size: 1.2rem; color: var(--text-secondary); margin-top: 0.5rem;">{{ page.description }}</p>
     {% endif %}
+    <div class="project-meta">
+      {% if page.date %}
+      <span>📅 {{ page.date | date: "%B %d, %Y" }}</span>
+      {% endif %}
+      {% if page.category %}
+      <span>📁 {{ page.category }}</span>
+      {% endif %}
+    </div>
     {% if page.tags %}
-    <div class="tags">
+    <div class="project-tags">
       {% for tag in page.tags %}
       <span class="tag">{{ tag }}</span>
       {% endfor %}
@@ -17,27 +25,31 @@ layout: default
   </header>
   
   {% if page.thumbnail %}
-  <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="project-image">
+  <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="project-cover">
   {% endif %}
   
-  <div class="content">
+  <div class="project-content">
     {{ content }}
   </div>
   
   {% if page.links %}
   <div class="project-links">
     {% for link in page.links %}
-    <a href="{{ link.url }}" class="button" target="_blank">{{ link.title }}</a>
+    <a href="{{ link.url }}" class="project-link" target="_blank" rel="noopener">
+      {{ link.title }}
+    </a>
     {% endfor %}
   </div>
   {% endif %}
   
   <nav class="post-nav">
     {% if page.previous.url %}
-    <a href="{{ page.previous.url }}" class="prev">← {{ page.previous.title }}</a>
+    <a href="{{ page.previous.url }}">← {{ page.previous.title }}</a>
+    {% else %}
+    <span></span>
     {% endif %}
     {% if page.next.url %}
-    <a href="{{ page.next.url }}" class="next">{{ page.next.title }} →</a>
+    <a href="{{ page.next.url }}">{{ page.next.title }} →</a>
     {% endif %}
   </nav>
 </article>
