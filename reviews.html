@@ -1,17 +1,29 @@
 ---
 layout: default
-title: Reviews
+title: Game Reviews
+permalink: /reviews/
 ---
-<div class="section-page">
-  <h1>Game Reviews</h1>
-  <div class="grid">
-    {% for review in site.reviews %}
-    <a href="{{ review.url | relative_url }}" class="card">
-      <h3>{{ review.title }}</h3>
-      <p>{{ review.excerpt | strip_html | truncatewords: 30 }}</p>
-      {% if review.date %}
-      <small>{{ review.date | date: "%B %Y" }}</small>
+<div class="list-page">
+  <h1>📝 Game Reviews</h1>
+  <p style="color: var(--text-secondary); margin-bottom: 2rem;">In-depth analysis and thoughts on games</p>
+  <div class="project-grid">
+    {% assign sorted_reviews = site.reviews | sort: 'date' | reverse %}
+    {% for review in sorted_reviews %}
+    <a href="{{ review.url | relative_url }}" class="project-card">
+      {% if review.thumbnail %}
+      <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}">
+      {% else %}
+      <div style="height: 200px; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center;">
+        <span style="color: var(--text-light); font-size: 3rem;">📝</span>
+      </div>
       {% endif %}
+      <div class="project-card-content">
+        <h3>{{ review.title }}</h3>
+        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 30 }}</p>
+        {% if review.date %}
+        <p class="date">{{ review.date | date: "%B %Y" }}</p>
+        {% endif %}
+      </div>
     </a>
     {% endfor %}
   </div>

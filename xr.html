@@ -1,15 +1,21 @@
 ---
 layout: default
 title: XR Projects
+permalink: /xr/
 ---
 <div class="list-page">
   <h1>🥽 XR Projects</h1>
+  <p style="color: var(--text-secondary); margin-bottom: 2rem;">Virtual Reality and Augmented Reality experiences</p>
   <div class="project-grid">
     {% assign sorted_xr = site.xr | sort: 'date' | reverse %}
     {% for project in sorted_xr %}
     <a href="{{ project.url | relative_url }}" class="project-card">
       {% if project.thumbnail %}
       <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}">
+      {% else %}
+      <div style="height: 200px; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center;">
+        <span style="color: var(--text-light); font-size: 3rem;">🥽</span>
+      </div>
       {% endif %}
       <div class="project-card-content">
         <h3>{{ project.title }}</h3>
