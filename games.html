@@ -1,0 +1,18 @@
+---
+layout: default
+title: Games
+---
+<div class="section-page">
+  <h1>Games</h1>
+  <div class="grid">
+    {% for game in site.games %}
+    <a href="{{ game.url | relative_url }}" class="card">
+      <h3>{{ game.title }}</h3>
+      <p>{{ game.excerpt | strip_html | truncatewords: 30 }}</p>
+      {% if game.date %}
+      <small>{{ game.date | date: "%B %Y" }}</small>
+      {% endif %}
+    </a>
+    {% endfor %}
+  </div>
+</div>

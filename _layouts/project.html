@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<article class="project">
+  <header>
+    <h1>{{ page.title }}</h1>
+    {% if page.date %}
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+    {% endif %}
+    {% if page.tags %}
+    <div class="tags">
+      {% for tag in page.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+  
+  {% if page.thumbnail %}
+  <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="project-image">
+  {% endif %}
+  
+  <div class="content">
+    {{ content }}
+  </div>
+  
+  {% if page.links %}
+  <div class="project-links">
+    {% for link in page.links %}
+    <a href="{{ link.url }}" class="button" target="_blank">{{ link.title }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+  
+  <nav class="post-nav">
+    {% if page.previous.url %}
+    <a href="{{ page.previous.url }}" class="prev">← {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next.url %}
+    <a href="{{ page.next.url }}" class="next">{{ page.next.title }} →</a>
+    {% endif %}
+  </nav>
+</article>

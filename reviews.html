@@ -1,0 +1,18 @@
+---
+layout: default
+title: Reviews
+---
+<div class="section-page">
+  <h1>Game Reviews</h1>
+  <div class="grid">
+    {% for review in site.reviews %}
+    <a href="{{ review.url | relative_url }}" class="card">
+      <h3>{{ review.title }}</h3>
+      <p>{{ review.excerpt | strip_html | truncatewords: 30 }}</p>
+      {% if review.date %}
+      <small>{{ review.date | date: "%B %Y" }}</small>
+      {% endif %}
+    </a>
+    {% endfor %}
+  </div>
+</div>

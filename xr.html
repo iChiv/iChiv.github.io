@@ -1,0 +1,18 @@
+---
+layout: default
+title: XR Projects
+---
+<div class="section-page">
+  <h1>XR Projects</h1>
+  <div class="grid">
+    {% for project in site.xr %}
+    <a href="{{ project.url | relative_url }}" class="card">
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.excerpt | strip_html | truncatewords: 30 }}</p>
+      {% if project.date %}
+      <small>{{ project.date | date: "%B %Y" }}</small>
+      {% endif %}
+    </a>
+    {% endfor %}
+  </div>
+</div>

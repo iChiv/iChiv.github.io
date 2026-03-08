@@ -1,0 +1,66 @@
+---
+layout: default
+---
+<div class="hero">
+  <h1>Hi there!</h1>
+  <p>My name is Ziwei Niu, you can call me Alex.</p>
+  <p>I am a Game Designer / Developer</p>
+  <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="Alex" class="avatar">
+</div>
+
+<div class="welcome">
+  <p>Welcome to my website.</p>
+  <p>Here are some of my games and game analyses.</p>
+  <p>Hope you enjoy them.</p>
+</div>
+
+<div class="sections">
+  <section class="section">
+    <h2><a href="{{ '/games/' | relative_url }}">Games</a></h2>
+    <div class="grid">
+      {% for game in site.games limit:3 %}
+      <a href="{{ game.url | relative_url }}" class="card">
+        {% if game.thumbnail %}
+        <img src="{{ game.thumbnail | relative_url }}" alt="{{ game.title }}">
+        {% endif %}
+        <h3>{{ game.title }}</h3>
+        <p>{{ game.excerpt | strip_html | truncatewords: 20 }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <a href="{{ '/games/' | relative_url }}" class="more-link">See all games →</a>
+  </section>
+
+  <section class="section">
+    <h2><a href="{{ '/xr/' | relative_url }}">XR Projects</a></h2>
+    <div class="grid">
+      {% for project in site.xr limit:3 %}
+      <a href="{{ project.url | relative_url }}" class="card">
+        {% if project.thumbnail %}
+        <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}">
+        {% endif %}
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.excerpt | strip_html | truncatewords: 20 }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <a href="{{ '/xr/' | relative_url }}" class="more-link">See all XR projects →</a>
+  </section>
+
+  <section class="section">
+    <h2><a href="{{ '/reviews/' | relative_url }}">Reviews</a></h2>
+    <div class="grid">
+      {% for review in site.reviews limit:3 %}
+      <a href="{{ review.url | relative_url }}" class="card">
+        <h3>{{ review.title }}</h3>
+        <p>{{ review.excerpt | strip_html | truncatewords: 20 }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <a href="{{ '/reviews/' | relative_url }}" class="more-link">See all reviews →</a>
+  </section>
+</div>
+
+<div class="cta">
+  <a href="{{ '/about/' | relative_url }}" class="button">About Me</a>
+</div>

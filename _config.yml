@@ -1,0 +1,43 @@
+title: Alex Ziwei Niu
+description: Game Developer
+author: Alex Ziwei Niu
+email: zzzv0325@gmail.com
+url: https://iChiv.github.io
+
+collections:
+  games:
+    output: true
+    permalink: /games/:name/
+  xr:
+    output: true
+    permalink: /xr/:name/
+  reviews:
+    output: true
+    permalink: /reviews/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "games"
+    values:
+      layout: "project"
+      category: "Games"
+  - scope:
+      path: ""
+      type: "xr"
+    values:
+      layout: "project"
+      category: "XR"
+  - scope:
+      path: ""
+      type: "reviews"
+    values:
+      layout: "review"
+      category: "Reviews"
+
+markdown: kramdown
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
