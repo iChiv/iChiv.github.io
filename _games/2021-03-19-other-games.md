@@ -3,32 +3,30 @@ title: "Other Games"
 layout: project
 category: Games
 date: 2021-03-19
+description: "A collection of practice projects and GameJam games"
+tags: [Various, GameJam, Practice]
 ---
 
-These are some of the games I’ve had a hand in making, and they haven’t been organised into separate pages yet.
+These are some of the games I've had a hand in making that haven't been organized into separate pages yet. Some of these are practice projects and ideas that popped up during GameJams.
 
-Some of these are practice projects, and ideas that popped up during GameJam took a little bit of tournament time to make (just for fun!)
+## Alpark
 
-## [Alpark]()
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kEc7clu8N34" frameborder="0" allowfullscreen></iframe>
 
-## [X Meow]()
+[Play Alpark on itch.io →](https://clockworkred.itch.io/alpark)
 
-## [Pizza time and GameJam]()
+## X Meow
 
-## [Brainfog Worker]()
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wq2WkIPA1M0" frameborder="0" allowfullscreen></iframe>
 
-![](https://redox.games/wp-content/uploads/2024/05/msedge_ibGlfWz0gC-1024x572.jpg)
+[Play X Meow on itch.io →](https://clockworkred.itch.io/x-meow)
 
-## 发表回复 [取消回复]()
+## Pizza Time and GameJam
 
-您的邮箱地址不会被公开。必填项已用 * 标注
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4c29uYEVZcU" frameborder="0" allowfullscreen></iframe>
 
-评论 *
+[Play on itch.io →](https://clockworkred.itch.io/pizza-time-and-game-jam)
 
-显示名称 *
+## Brainfog Worker
 
-邮箱 *
-
-网站
-
-在此浏览器中保存我的显示名称、邮箱地址和网站地址，以便下次评论时使用。
+[Watch on Bilibili →](https://www.bilibili.com/video/BV13T411W76e)
