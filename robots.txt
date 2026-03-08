@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iChiv.github.io/sitemap.xml

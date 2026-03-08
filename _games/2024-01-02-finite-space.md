@@ -7,8 +7,6 @@ description: "A space survival action game where you collect resources and build
 thumbnail: /assets/images/projects/finite-space-1.png
 tags: [Action, WebGL, Unity]
 links:
-  - title: "Play on itch.io"
-    url: "https://itch.io"
   - title: "Watch Gameplay"
     url: "https://www.youtube.com/watch?v=Db5xqYW9-GQ"
 ---
