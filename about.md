@@ -7,7 +7,7 @@ permalink: /about/
   <header class="resume-hero">
     <div>
       <p class="eyebrow">Resume / profile</p>
-      <h1>牛子威 <span class="subtitle">系统与玩法策划 · Game Systems / Gameplay Designer</span></h1>
+      <h1>牛子威 <span class="subtitle">系统与玩法策划 · Game Systems / Gameplay Designer · Prototype-Driven</span></h1>
       <p class="resume-summary">
         具备游戏策划、原型开发、用户研究与 XR 探索经验。擅长把抽象玩法想法拆成可测试的系统逻辑，并通过原型、反馈与迭代把体验落到玩家手上。
       </p>
