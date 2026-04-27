@@ -13,6 +13,8 @@ lang: en
 
 Ring Fit Adventure is a fitness RPG from Nintendo that requires the Nintendo Switch and Ring-Con to play.
 
+![Ring Fit Adventure title](/assets/images/reviews/ring-fit-adventure-img-1_HAC-P-AXF5B-1024x576.jpg)
+
 Players take on the role of a warrior who uses fitness to fight against the Dragaux. Players need to perform actions that match their character's movements to manipulate them to move, attack and other actions, combining gameplay with movement to create a gameplay experience that will keep players engrossed in fitness.
 
 Ring Fit Adventure overcomes the weak feedback and monotony of the fitness process and creates a fun experience for the player with a complete gameplay framework for how fitness works.
@@ -37,6 +39,8 @@ And for most players, the main reasons for not being able to keep exercising are
 Ring Fit Adventure goes in the opposite direction by first laying out the full RPG core mechanics in an interaction that requires the player to operate through movement.
 
 The game's own substantial RPG system features a much better numerical plan. Any action the player takes in the game converts into experience, and in the early stages of the game, the player can upgrade every 1-2 levels, and even towards the end of the game, up to 4 levels can be reached. The experience is enhanced by attack animations, background music and exercise assistance.
+
+![Character introduction](/assets/images/reviews/ring-fit-adventure-img-2_CI_NSwitch_RingFitAdventure_Intro_Character-690x1024.webp)
 
 Using RPG elements, the game makes the sport more engaging.
 
@@ -68,6 +72,8 @@ I have divided the core RPG system of this game into three sections: characters,
 - **NPC — Honey and Hubby:** Honey and Hubby are the couple who run the grocery shop in the game.
 - They will give out quests to players and sell props, equipment and materials.
 
+![Town shop](/assets/images/reviews/ring-fit-adventure-img-3_IMG_2511-1024x576.jpg)
+
 - **Enemies — Dragaux:** Dragaux is the game's biggest villain, a fitness freak determined to beat the player.
 - Dragaux will appear repeatedly throughout the game, each time with a new method of attack.
 
@@ -96,6 +102,9 @@ The scenes in the game are divided into two categories: **worlds and levels.**
   - Treasure chests, where players can earn rewards directly
   - Portal, which transports players to another location in the world to explore
 
+![World map](/assets/images/reviews/ring-fit-adventure-img-4_latest-20220822035517801-126x300.png)
+![Level select](/assets/images/reviews/ring-fit-adventure-img-5_latest-20220822035530103-164x300.png)
+
 - **Levels:** Players need to keep moving through levels by running in place. Players move through levels by platform jumping. Challenge levels in which players will enter different level scenarios depending on the challenge objective.
 - Levels contain the following:
   - Players can collect gold coins and are rewarded with experience points for collecting three large gold coins
@@ -118,6 +127,9 @@ The scenes in the game are divided into two categories: **worlds and levels.**
 - Although the number of movements required per attack or recovery varies by adjusting the intensity of the training, the upper limit of the value is fixed.
 - There are 45 skills in 4 categories and each skill is divided into 4 levels, the higher the level, the better the effect.
 
+![Skills list — Arms](/assets/images/reviews/ring-fit-adventure-img-6_350-300x284.png)
+![Skills list — Legs](/assets/images/reviews/ring-fit-adventure-img-7_latest.png)
+
 **Arms (8):** Overhead Press / Front Press / Bow Pull / Overhead Arm Twist / Overhead Arm Spin / Shoulder Press / Tricep Kickback / Back Press
 
 **Stomach (16):** Knee-to-Chest / Standing Twist / Plank / Overhead Bend / Open & Close Leg Raise / Overhead Hip Shake / Seated Forward Press / Overhead Lunge Twist / Leg Raise / Flutter Kick / Pendulum Bend / Leg Scissors / Russian Twist / Overhead Side Bend / Seated Ring Raise
@@ -133,16 +145,22 @@ The scenes in the game are divided into two categories: **worlds and levels.**
   - Summoning: pumped up bird enemies can summon other enemies to join the fight
   - Rest: all enemies may rest for a while without taking any action
 
+![Combat screenshot](/assets/images/reviews/ring-fit-adventure-img-8_IMG_2509-1024x576.jpg)
+
 - **Damage Formula:**
   - **Normal Attack:** (Player Attack + Cloth Attack + Action Attack) / Target Defense
   - **Color Matched:** All Attack * 150%
   - **Smoothie:** All attack * 120% (boost) or 135% (huge boost)
+
+![Damage formula diagram](/assets/images/reviews/ring-fit-adventure-img-9_Ring-fit-Adventuredrawio.drawio.png)
 
 - **External systems:**
   - **Special Attacks:** By drinking Smoothies or unlocking a talent, the player has a chance to trigger a Rush attack. Rush attacks require the player to repeat as many moves as possible in a limited amount of time. Rush attacks have different levels of fixed damage (normal, good, perfect) depending on the number of moves the player makes.
   - **Props:** Smoothies can be used to add bonuses in levels or to restore blood and provide buffs in battle. Players can synthesise Smoothies in the world interface or buy them in town. Players can obtain Smoothie recipes through treasure chests or level rewards. The ingredients needed to make Smoothies can be collected in the levels. Players will need to use Ring-Con with their moves to make Smoothie.
   - **Equipment:** Equipment can improve character attributes or increase level rewards. Some equipment has special mechanics, such as translating the language of other races in the game. Equipment needs to be purchased by the player in town.
   - **Talent trees:** Talent trees can unlock skills, improve character attributes and increase a character's combat abilities. Players upgrade to gain skill points to unlock the talent tree.
+
+![Equipment shop](/assets/images/reviews/ring-fit-adventure-img-10_IMG_2519-1024x576.jpg)
 
 ### 3.4 Summary
 
@@ -161,6 +179,8 @@ Ring Fit Adventure ensures a fun fitness tone through its core mechanics, and re
 - **Visuals:** When the player performs a move correctly, the flame effects on the character's head become brighter and the power-ups glow, creating the impression that the player is burning calories themselves.
 - When attacking, depending on the type of action, there are different attack effects around the enemy. These effects are closely related to the action, for example, when performing abdominal movements, the attack effect changes from a beer belly to a visible eight-pack.
 - When defending, the size of the defensive shield will change depending on the player's level of force, the harder the player works, the larger the shield will be.
+
+![Exercise visualization](/assets/images/reviews/ring-fit-adventure-img-11_IMG_2521-1024x576.jpg)
 
 - **Sound effects:** As the player moves through the level, a quick run in place will not only fire up the character's head, but will also motivate the player with acceleration sounds.
 - As players perform actions, they are prompted by a low to rapid sound effect, the more standard the player's actions, the faster and louder the sound translates.

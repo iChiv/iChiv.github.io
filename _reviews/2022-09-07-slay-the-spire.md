@@ -13,7 +13,9 @@ lang: en
 
 Slay the Spire is a card-based Roguelike game created and published by Mega Crit Games. It combines deck building and Rogue gameplay, encouraging players to combine their decks based on randomly appearing cards and relics to defeat the enemies in the spire.
 
-The game is inherited from Dream Quest, developed by Peter Whalen, but optimized on its strong randomness to create a highly strategic gameplay experience for players using monster intent and clear card effects. In its wake, countless followers have flocked to this niche genre, and now the card-based Rouge has become an extremely large segment of the gaming community.
+![Slay the Spire](/assets/images/reviews/slay-the-spire-img-1_9gbigsizimj21-1024x576.png)
+
+The game is inherited from Dream Quest, developed by Peter Whalen, but optimized on its strong randomness to create a highly strategic gameplay experience for players using monster intent and clear card effects. In its wake, countless followers have flocked to this niche genre, and now the card-based Rogue has become an extremely large segment of the gaming community.
 
 ## 2. Making Random Strategic
 
@@ -23,7 +25,7 @@ At the 1989 GDC, game design master Sid Meier said:
 
 Slay the Spire succeeds precisely because it offers players a predictable choice of strategies to crack difficult levels with calculation, no matter the difficulty. This kind of thinking is exactly what makes for interesting decisions.
 
-I think there are often two types of randomness in strategy Rouge: **chance random** and **strategy random**.
+I think there are often two types of randomness in strategy Rogue: **chance random** and **strategy random**.
 
 ### Chance Random
 
@@ -37,15 +39,19 @@ For example, with mechanics such as character hit and critic rates in XCOM, the 
 
 The player is unable to accurately predict the outcome before the character acts, which can result in the entire course of the battle changing due to this one random circumstance.
 
-Rouge games often have limited resources and the player consumes resources with every action, **creating what must be a poor gaming experience if the correct strategy may randomly travel as a result**.
+Rogue games often have limited resources and the player consumes resources with every action, **creating what must be a poor gaming experience if the correct strategy may randomly travel as a result**.
 
 ### Strategy Random
 
 Strategy random means that **the game generates random challenges or puzzles, and the player chooses his or her own determined expectations** based on these challenges.
 
+![Into the Breach](/assets/images/reviews/slay-the-spire-img-2_Diesel2Fproductv22Finto-the-breach2Fhome2FEGS_SubsetGames_IntotheBreach_G2_02-1280x720-fbcadbedc3c2cab213b416060931efe05abed4b8-1024x576.jpg)
+
 For example, in Into the Breach, the location of monster generation is random, but the player can clearly see the intent of each enemy, the location and type of new enemy that will appear on the next turn, and thus control the character to execute the optimal strategy of his or her choice.
 
 This type of randomness is similar to gaming in a chess game, but instead of having to evolve the opponent's possible choices, the player simply uses the limited leverage his side has to solve the upcoming problem. However, it still **requires a great deal of calculation at each move, increasing the burden of thought on the player**.
+
+![Slay the Spire gameplay](/assets/images/reviews/slay-the-spire-img-3_ss20-1024x576.webp)
 
 Slay the Spire is a clever combination of two random mechanics, as players build decks from randomly appearing cards and then use them strategically to solve puzzles based on the battlefield.
 
@@ -59,7 +65,7 @@ This doesn't mean that the cards don't have random effects, but the presence of 
 
 In traditional strategy games, players need to manage and administer the resources they collect in a limited amount of time to win, but one defeat does not mean the end of the game, as long as they can continue to collect resources, they will always have a chance to turn the game around.
 
-In Strategy Rouge, the length of a single game is fixed, which means that the player's resources are fixed, and all of the player's strategic choices will revolve around the limited resources, i.e. the strategy is the solution to the allocation of those resources.
+In Strategy Rogue, the length of a single game is fixed, which means that the player's resources are fixed, and all of the player's strategic choices will revolve around the limited resources, i.e. the strategy is the solution to the allocation of those resources.
 
 In Slay the Spire, players have 4 types of resources:
 
@@ -90,6 +96,8 @@ Six types of rooms are shown on the map:
 Combat is the part of Slay the Spire that players have to face as they move forward, and it's fair to say that everything players do to prepare for combat in the game is in service of it.
 
 The victory condition is that all enemy lives are reduced to 0. The defeat condition is that the player's life is reduced to 0.
+
+![Combat flow](/assets/images/reviews/slay-the-spire-img-4_STS_battle.drawio.png)
 
 There are very few ways to restore life points in the game, so the player's strategic choices for balancing the character's attack and defence in each turn are in effect resource management of the character's life points.
 
@@ -126,6 +134,8 @@ At the same time, the weak initial card strength of each character encourages pl
 Cards are the player's strategic options in battle, and the more strategic they are, the more complex the player will be able to deal with the situation.
 
 For this reason, instead of including a large number of rare cards with extensive text descriptions, Slay the Spire simplifies card functions and then enriches them with linking effects. The player community refers to these effects as combos, and cards that can form combos are referred to as a card system.
+
+![Gameplay screenshot](/assets/images/reviews/slay-the-spire-img-5_ss23-1024x576.webp)
 
 Statistics on the popular systems for each profession reveal that the designers offer a wealth of strategic options for each profession.
 
@@ -171,21 +181,27 @@ In the original beta version, this feature required players to click on each ene
 
 There are 15 types of icons for monster intent, depending on the damage and effect, and the damage value is displayed directly on the icon. If the enemy's actions cause a compound effect, the icons will overlap and there are 12 types of compound icons. The monster itself animates differently depending on the intent.
 
-- 0-4 damage
-- 5-9 damage
-- 10-14 damage
-- 15-19 damage
-- 20-24 damage
-- 25-29 damage
-- 30+ damage
-- Block
-- Negative Effect
-- Powerful Negative Effect
-- Use a Buff
-- Escape
-- Asleep
-- Stunned
-- Not any of the above
+![Monster intent icons](/assets/images/reviews/slay-the-spire-img-6_270.png)
+
+| Damage/Effect Range | Icon |
+|---------------------|------|
+| 0-4 damage | ![](/assets/images/reviews/slay-the-spire-img-6_270.png) |
+| 5-9 damage | — |
+| 10-14 damage | — |
+| 15-19 damage | — |
+| 20-24 damage | — |
+| 25-29 damage | — |
+| 30+ damage | — |
+| Block | — |
+| Negative Effect | — |
+| Powerful Negative Effect | — |
+| Use a Buff | — |
+| Escape | — |
+| Asleep | — |
+| Stunned | — |
+| Not any of the above | — |
+
+![More intent icons](/assets/images/reviews/slay-the-spire-img-7_216.png)
 
 The following outcomes are possible when the enemy's intentions are unknown:
 
@@ -196,11 +212,15 @@ The following outcomes are possible when the enemy's intentions are unknown:
 - Reviving itself
 - Doing nothing
 
+![Intent unknown outcomes](/assets/images/reviews/slay-the-spire-img-8_224.png)
+
 ### Card design outside the system
 
 When a player chooses a card system that is severely lacking in a certain function, they can choose a card that is severely over-valued in the missing function but has harsh conditions of use to complement the weaknesses of their library, giving players a wider range of strategic options.
 
 Players can choose cards that convert an ability into another type of ability, such as Body Slam: Deal damage equal to your Block, which converts a defensive ability into a damage ability.
+
+![Cross-system cards](/assets/images/reviews/slay-the-spire-img-9_290.png)
 
 Colorless cards are difficult to form combinations with, but they are strong enough to complement a player's professional library, and can even have special combinations with other systems, providing players with more imaginative strategic options.
 
