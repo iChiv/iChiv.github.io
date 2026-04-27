@@ -112,7 +112,7 @@ layout: default
         {% if site.social.github %}
         <a href="{{ site.social.github }}" target="_blank" rel="noopener">GitHub</a>
         {% endif %}
-        <a href="{% if page.lang == 'zh' %}{{ '/' | relative_url }}{% else %}{{ '/zh/' | relative_url }}{% endif %}" class="footer-lang-link">
+        <a href="{% if page.lang == 'zh' %}{% assign en_url = page.url | remove_first: '/zh' %}{% if en_url == '' or en_url == '/' %}{{ '/' | relative_url }}{% else %}{{ en_url | relative_url }}{% endif %}{% else %}{% assign zh_url = '/zh' | append: page.url | remove: '//' %}{% if page.url == '/' %}{{ '/zh/' | relative_url }}{% else %}{{ zh_url | relative_url }}{% endif %}{% endif %}" class="footer-lang-link">
           {% if page.lang == 'zh' %}🇬🇧 English{% else %}🇨🇳 中文{% endif %}
         </a>
       </div>
