@@ -145,18 +145,21 @@ layout: default
   </div>
 </section>
 
-<section class="section-card">
+<section class="section-card supplementary-section">
   <div class="section-heading section-heading-inline">
     <div>
-      <p class="eyebrow">Writing & analysis</p>
-      <h2>Game reviews as design thinking</h2>
+      <p class="eyebrow">Supplementary writing</p>
+      <h2>Reviews and analysis that support my design thinking.</h2>
     </div>
-    <a href="{{ '/reviews/' | relative_url }}" class="text-link">View all writing</a>
+    <a href="{{ '/reviews/' | relative_url }}" class="text-link">Browse writing</a>
   </div>
-  <div class="project-grid project-grid-compact">
+  <p class="supplementary-copy">
+    I also write game reviews and analysis pieces to sharpen my understanding of motivation, pacing, feedback, and player-facing systems.
+  </p>
+  <div class="project-grid project-grid-compact supplementary-grid">
     {% assign latest_reviews = site.reviews | sort: 'date' | reverse %}
     {% for review in latest_reviews limit:3 %}
-    <a href="{{ review.url | relative_url }}" class="project-card">
+    <a href="{{ review.url | relative_url }}" class="project-card project-card-minor">
       {% if review.thumbnail %}
       <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
       {% endif %}
@@ -166,7 +169,7 @@ layout: default
           {% if review.date %}<span class="card-date">{{ review.date | date: "%Y" }}</span>{% endif %}
         </div>
         <h3>{{ review.title }}</h3>
-        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 24 }}</p>
+        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 20 }}</p>
       </div>
     </a>
     {% endfor %}

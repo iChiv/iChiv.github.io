@@ -491,6 +491,11 @@ main {
   min-height: 100%;
 }
 
+.project-card-minor {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(23, 32, 51, 0.06);
+}
+
 .project-card {
   display: flex;
   flex-direction: column;
@@ -568,6 +573,20 @@ main {
   border-radius: 22px;
   background: rgba(16, 23, 39, 0.04);
   border: 1px solid rgba(23, 32, 51, 0.08);
+}
+
+.supplementary-section {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.supplementary-copy {
+  max-width: 60ch;
+  margin-bottom: 1rem;
+  color: var(--text-soft-dark);
+}
+
+.supplementary-grid {
+  gap: 0.9rem;
 }
 
 .capability-item h3,
