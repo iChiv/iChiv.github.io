@@ -7,43 +7,40 @@ layout: default
     {% if page.description %}
     <p class="project-desc">{{ page.description }}</p>
     {% endif %}
-    <div class="project-meta-tags">
+    <div class="project-meta">
       {% if page.category %}
-      <span class="pill">{{ page.category }}</span>
+      {% assign cat = page.category | downcase %}
+      <span class="pill pill-{{ cat }}">{{ page.category }}</span>
       {% endif %}
       {% if page.date %}
-      <span class="card-date">{{ page.date | date: "%Y" }}</span>
+      <span class="card-year">{{ page.date | date: "%Y" }}</span>
       {% endif %}
       {% if page.tags %}
-      <div class="tag-row" style="display: inline-flex;">
-        {% for tag in page.tags %}
-        <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
+      {% for tag in page.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
       {% endif %}
     </div>
     {% if page.links %}
-    <div class="project-links">
+    <p class="project-links" style="margin-top: 0.5rem;">
       {% for link in page.links %}
-      <a href="{{ link.url }}" class="project-link" target="_blank" rel="noopener">
-        {{ link.title }}
-      </a>
+      <a href="{{ link.url }}" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="margin-right:0.5rem">{{ link.title }}</a>
       {% endfor %}
-    </div>
+    </p>
     {% endif %}
   </header>
   
   {% if page.thumbnail %}
-  <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="project-cover" loading="eager">
+  <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="project-cover" loading="eager" style="border-radius: var(--radius); margin-bottom: 2rem; border: 1px solid var(--border);">
   {% endif %}
   
   <div class="project-content">
     {{ content }}
   </div>
   
-  <nav class="post-nav-back">
-    <a href="{% if page.lang == 'zh' %}{{ '/zh/games/' | relative_url }}{% else %}{{ '/games/' | relative_url }}{% endif %}" class="text-link">
-      {% if page.lang == 'zh' %}← 返回全部项目{% else %}← Back to all projects{% endif %}
+  <nav class="project-nav">
+    <a href="{% if page.lang == 'zh' %}{{ '/zh/games/' | relative_url }}{% else %}{{ '/games/' | relative_url }}{% endif %}">
+      {% if page.lang == 'zh' %}← 返回全部项目{% else %}← Back to projects{% endif %}
     </a>
   </nav>
 </article>

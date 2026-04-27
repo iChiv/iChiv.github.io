@@ -5,29 +5,28 @@ permalink: /games/
 lang: en
 ---
 <div class="list-page">
-  <div class="list-header">
-    <p class="eyebrow">Game projects</p>
-    <h1>Games</h1>
-    <p class="list-desc">Gameplay projects focused on systems design, prototyping, and player interaction.</p>
-  </div>
-  <div class="project-grid">
+  <h1>Games</h1>
+  <p class="list-desc">Gameplay projects focused on systems design, prototyping, and player interaction.</p>
+  <div class="card-grid">
     {% assign sorted_games = site.games | where: "lang", "en" | sort: 'date' | reverse %}
     {% for game in sorted_games %}
-    <a href="{{ game.url | relative_url }}" class="project-card">
+    <a href="{{ game.url | relative_url }}" class="card card-project">
       {% if game.thumbnail %}
-      <img src="{{ game.thumbnail | relative_url }}" alt="{{ game.title }}" loading="lazy">
+      <div class="card-img">
+        <img src="{{ game.thumbnail | relative_url }}" alt="{{ game.title }}" loading="lazy">
+      </div>
       {% endif %}
-      <div class="project-card-content">
-        <div class="card-meta-row">
-          <span class="pill">{{ game.category }}</span>
-          {% if game.date %}<span class="card-date">{{ game.date | date: "%Y" }}</span>{% endif %}
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="pill pill-games">{{ game.category }}</span>
+          {% if game.date %}<span class="card-year">{{ game.date | date: "%Y" }}</span>{% endif %}
         </div>
         <h3>{{ game.title }}</h3>
-        <p>{{ game.description | default: game.excerpt | strip_html | truncatewords: 30 }}</p>
+        <p>{{ game.description | default: game.excerpt | strip_html | truncatewords: 24 }}</p>
         {% if game.tags %}
-        <div class="tag-row">
+        <div class="card-tags">
           {% for tag in game.tags limit:3 %}
-          <span class="tag">{{ tag }}</span>
+          <span>{{ tag }}</span>
           {% endfor %}
         </div>
         {% endif %}

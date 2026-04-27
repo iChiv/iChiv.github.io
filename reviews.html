@@ -5,29 +5,28 @@ permalink: /reviews/
 lang: en
 ---
 <div class="list-page">
-  <div class="list-header">
-    <p class="eyebrow">Reviews & analysis</p>
-    <h1>Writing</h1>
-    <p class="list-desc">Game design analysis pieces exploring motivation, pacing, feedback systems, and player-facing design.</p>
-  </div>
-  <div class="project-grid">
+  <h1>Writing</h1>
+  <p class="list-desc">Game design analysis pieces exploring motivation, pacing, feedback systems, and player-facing design.</p>
+  <div class="card-grid">
     {% assign sorted_reviews = site.reviews | where: "lang", "en" | sort: 'date' | reverse %}
     {% for review in sorted_reviews %}
-    <a href="{{ review.url | relative_url }}" class="project-card">
+    <a href="{{ review.url | relative_url }}" class="card card-review">
       {% if review.thumbnail %}
-      <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
+      <div class="card-img">
+        <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
+      </div>
       {% endif %}
-      <div class="project-card-content">
-        <div class="card-meta-row">
-          <span class="pill">{{ review.category }}</span>
-          {% if review.date %}<span class="card-date">{{ review.date | date: "%Y" }}</span>{% endif %}
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="pill pill-reviews">{{ review.category }}</span>
+          {% if review.date %}<span class="card-year">{{ review.date | date: "%Y" }}</span>{% endif %}
         </div>
         <h3>{{ review.title }}</h3>
-        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 30 }}</p>
+        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 24 }}</p>
         {% if review.tags %}
-        <div class="tag-row">
+        <div class="card-tags">
           {% for tag in review.tags limit:3 %}
-          <span class="tag">{{ tag }}</span>
+          <span>{{ tag }}</span>
           {% endfor %}
         </div>
         {% endif %}

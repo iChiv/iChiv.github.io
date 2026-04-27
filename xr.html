@@ -5,29 +5,28 @@ permalink: /xr/
 lang: en
 ---
 <div class="list-page">
-  <div class="list-header">
-    <p class="eyebrow">XR experiments</p>
-    <h1>XR Projects</h1>
-    <p class="list-desc">VR and mixed reality exploration — interaction design, prototyping, and immersive experience evaluation.</p>
-  </div>
-  <div class="project-grid">
+  <h1>XR Projects</h1>
+  <p class="list-desc">VR and mixed reality exploration — interaction design, prototyping, and immersive experience evaluation.</p>
+  <div class="card-grid">
     {% assign sorted_xr = site.xr | where: "lang", "en" | sort: 'date' | reverse %}
     {% for project in sorted_xr %}
-    <a href="{{ project.url | relative_url }}" class="project-card">
+    <a href="{{ project.url | relative_url }}" class="card card-project">
       {% if project.thumbnail %}
-      <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}" loading="lazy">
+      <div class="card-img">
+        <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}" loading="lazy">
+      </div>
       {% endif %}
-      <div class="project-card-content">
-        <div class="card-meta-row">
-          <span class="pill">{{ project.category }}</span>
-          {% if project.date %}<span class="card-date">{{ project.date | date: "%Y" }}</span>{% endif %}
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="pill pill-xr">{{ project.category }}</span>
+          {% if project.date %}<span class="card-year">{{ project.date | date: "%Y" }}</span>{% endif %}
         </div>
         <h3>{{ project.title }}</h3>
-        <p>{{ project.description | default: project.excerpt | strip_html | truncatewords: 30 }}</p>
+        <p>{{ project.description | default: project.excerpt | strip_html | truncatewords: 24 }}</p>
         {% if project.tags %}
-        <div class="tag-row">
+        <div class="card-tags">
           {% for tag in project.tags limit:3 %}
-          <span class="tag">{{ tag }}</span>
+          <span>{{ tag }}</span>
           {% endfor %}
         </div>
         {% endif %}

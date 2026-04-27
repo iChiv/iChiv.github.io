@@ -1,76 +1,49 @@
 ---
 layout: default
 ---
-<section class="hero-panel">
-  <div class="hero-copy">
-    <p class="eyebrow">精选作品与履历</p>
+
+<div class="hero">
+  <div class="hero-text">
     <h1>牛子威</h1>
-    <p class="hero-lead">
-      系统与玩法策划 · 专注原型验证、交互设计与玩家体验。
+    <p class="hero-role">系统与玩法策划 · Game Systems / Gameplay Designer</p>
+    <p class="hero-desc">
+      设计玩家驱动的系统，快速验证交互原型，在数字游戏与 XR 平台上打造可玩的游戏体验。
     </p>
-    <div class="hero-tags">
-      <span>系统设计</span>
-      <span>玩法原型</span>
-      <span>XR 交互</span>
-      <span>玩家洞察</span>
-    </div>
     <div class="hero-actions">
-      <a href="{{ '/zh/about/' | relative_url }}" class="button button-primary">查看简历</a>
-      <a href="#selected-work" class="button button-secondary">精选项目</a>
+      <a href="{{ '/zh/about/' | relative_url }}" class="btn btn-primary">简历</a>
+      <a href="#work" class="btn btn-outline">项目</a>
     </div>
   </div>
-  <aside class="hero-card">
-    <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="Alex Ziwei Niu 头像" class="hero-avatar">
-    <div class="hero-card-body">
-      <p class="hero-card-label">当前方向</p>
-      <h2>{{ site.role_zh }}</h2>
-      <p>{{ site.tagline_zh }}</p>
-      <ul class="stat-list">
-        <li><strong>6</strong><span>游戏项目</span></li>
-        <li><strong>3</strong><span>XR 实验</span></li>
-        <li><strong>3</strong><span>游戏评测</span></li>
-      </ul>
-    </div>
-  </aside>
-</section>
+</div>
 
-<section class="section-card" id="about-site">
-  <p class="eyebrow">关于本站</p>
-  <p style="max-width: 64ch; color: var(--text-muted); line-height: 1.7;">
-    一份直投式作品集，快速展示我在系统设计、交互体验和原型实现方面的思维方式。
-    建议从下方的精选项目开始，再到简历中了解经验与工具。
-  </p>
-</section>
-
-<section class="section-card" id="selected-work">
-  <div class="section-heading section-heading-inline">
-    <div>
-      <p class="eyebrow">精选项目</p>
-      <h2>近期作品</h2>
-    </div>
-    <a href="{{ '/zh/games/' | relative_url }}" class="text-link">查看全部 &rarr;</a>
+<section id="work">
+  <div class="section-header">
+    <h2>精选项目</h2>
+    <a href="{{ '/zh/games/' | relative_url }}" class="more-link">全部游戏 →</a>
   </div>
-  <div class="project-grid">
+  <div class="card-grid">
     {% assign featured_titles = "榫卯幻境|Project Catch|Finite Space" | split: "|" %}
     {% assign portfolio_items = site.zh_games | concat: site.zh_xr %}
     {% for featured_title in featured_titles %}
       {% for item in portfolio_items %}
         {% if item.title == featured_title %}
-    <a href="{{ item.url | relative_url }}" class="project-card">
+    <a href="{{ item.url | relative_url }}" class="card card-project">
       {% if item.thumbnail %}
-      <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}" loading="lazy">
+      <div class="card-img">
+        <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}" loading="lazy">
+      </div>
       {% endif %}
-      <div class="project-card-content">
-        <div class="card-meta-row">
-          <span class="pill">{{ item.category }}</span>
-          {% if item.date %}<span class="card-date">{{ item.date | date: "%Y" }}</span>{% endif %}
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="pill pill-{{ item.category | downcase }}">{{ item.category }}</span>
+          {% if item.date %}<span class="card-year">{{ item.date | date: "%Y" }}</span>{% endif %}
         </div>
         <h3>{{ item.title }}</h3>
-        <p>{{ item.description | default: item.excerpt | strip_html | truncatewords: 24 }}</p>
+        <p>{{ item.description | default: item.excerpt | strip_html | truncatewords: 20 }}</p>
         {% if item.tags %}
-        <div class="tag-row">
+        <div class="card-tags">
           {% for tag in item.tags limit:3 %}
-          <span class="tag">{{ tag }}</span>
+          <span>{{ tag }}</span>
           {% endfor %}
         </div>
         {% endif %}
@@ -82,77 +55,50 @@ layout: default
   </div>
 </section>
 
-<section class="section-card capabilities-card">
-  <p class="eyebrow">能力方向</p>
-  <h2>我能为团队带来的价值</h2>
-  <div class="capability-grid" style="margin-top: 0.5rem;">
-    <article class="capability-item">
-      <h3>机制与系统设计</h3>
-      <p>设计可读、可测、可扩展的玩家规则、成长路径和玩法循环。</p>
-    </article>
-    <article class="capability-item">
-      <h3>原型快速实现</h3>
-      <p>在 Unity、Unreal 及 Web 平台上将设计想法快速转化为可玩的交互原型。</p>
-    </article>
-    <article class="capability-item">
-      <h3>测试驱动迭代</h3>
-      <p>通过观察、反馈和结构化测试发现体验摩擦点，优化交互感受。</p>
-    </article>
-    <article class="capability-item">
-      <h3>跨职能协作</h3>
-      <p>在设计、实现、文档和沟通之间灵活切换，推动想法从概念到可交付形态。</p>
-    </article>
-  </div>
-</section>
-
-<section class="section-card section-split">
+<section class="split-section">
   <div>
-    <p class="eyebrow">履历概览</p>
-    <h2>经验</h2>
-    <ul class="timeline-list">
-      <li><strong>乐元素</strong> — 2026 年起负责玩法创新与内容填充。</li>
-      <li><strong>好未来 TouchFuture XR 游戏工作室</strong> — 系统设计、Unity 原型与 AI 行为评估。</li>
-      <li><strong>数字天空</strong> — 用户研究与社群反馈分析，输出可落地的玩法调优建议。</li>
+    <h2>经历</h2>
+    <ul class="timeline">
+      <li><strong>乐元素</strong> — 玩法设计、内容创新，2026 年至今</li>
+      <li><strong>好未来 TouchFuture XR 游戏工作室</strong> — 系统设计、Unity 原型、AI 行为评估</li>
+      <li><strong>数字天空</strong> — 用户研究、社群反馈分析、玩法调优</li>
     </ul>
-    <a href="{{ '/zh/about/' | relative_url }}" class="button button-secondary">完整简历</a>
+    <a href="{{ '/zh/about/' | relative_url }}" class="btn btn-outline btn-sm">完整简历</a>
   </div>
-  <div class="mini-panel">
-    <p class="mini-panel-label">工具与引擎</p>
-    <div class="skill-cloud">
-      <span>Unity</span> <span>Unreal Engine</span> <span>Godot</span>
-      <span>C#</span> <span>C++</span> <span>Blueprint</span>
-      <span>Python</span> <span>SQL</span>
-      <span>Prompt Engineering</span> <span>WebGL</span>
+  <div>
+    <h2>工具</h2>
+    <div class="tools-list">
+      <span>Unity</span> <span>Unreal Engine</span>
+      <span>C#</span> <span>Python</span>
+      <span>Godot</span> <span>Blueprints</span>
+      <span>WebGL</span>
     </div>
   </div>
 </section>
 
-<section class="section-card supplementary-section">
-  <div class="section-heading section-heading-inline">
-    <div>
-      <p class="eyebrow">写作与思考</p>
-      <h2>游戏分析</h2>
-    </div>
-    <a href="{{ '/zh/reviews/' | relative_url }}" class="text-link">浏览写作 &rarr;</a>
+<section class="review-section">
+  <div class="section-header">
+    <h2>写作</h2>
+    <a href="{{ '/zh/reviews/' | relative_url }}" class="more-link">全部评测 →</a>
   </div>
-  <p class="supplementary-copy">
-    通过游戏评测与分析，加深对动机、节奏、反馈和玩家系统的理解。
-  </p>
-  <div class="project-grid project-grid-compact supplementary-grid">
+  <p class="section-desc">从动机、节奏、反馈和系统设计的角度分析游戏。</p>
+  <div class="card-grid card-grid-3">
     {% assign zh_reviews = site.zh_reviews | sort: 'date' | reverse %}
     {% for review in zh_reviews limit:3 %}
     {% if review.title and review.title != "" and review.description and review.description != "" %}
-    <a href="{{ review.url | relative_url }}" class="project-card project-card-minor">
+    <a href="{{ review.url | relative_url }}" class="card card-review">
       {% if review.thumbnail %}
-      <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
+      <div class="card-img">
+        <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
+      </div>
       {% endif %}
-      <div class="project-card-content">
-        <div class="card-meta-row">
-          <span class="pill">{{ review.category }}</span>
-          {% if review.date %}<span class="card-date">{{ review.date | date: "%Y" }}</span>{% endif %}
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="pill pill-reviews">评测</span>
+          {% if review.date %}<span class="card-year">{{ review.date | date: "%Y" }}</span>{% endif %}
         </div>
         <h3>{{ review.title }}</h3>
-        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 16 }}</p>
+        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 14 }}</p>
       </div>
     </a>
     {% endif %}

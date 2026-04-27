@@ -1,56 +1,27 @@
 ---
 layout: default
 ---
-<section class="hero-panel">
-  <div class="hero-copy">
-    <p class="eyebrow">Portfolio & resume</p>
-    <h1>{{ site.author }}</h1>
-    <p class="hero-lead">
-      Game Systems / Gameplay Designer — designing systems, prototyping interactions, and building player-first game experiences across digital and XR formats.
+
+<div class="hero">
+  <div class="hero-text">
+    <h1>Alex Ziwei Niu</h1>
+    <p class="hero-role">Game Systems / Gameplay Designer</p>
+    <p class="hero-desc">
+      I design player-facing systems, prototype interactions, and build game experiences — across digital, XR, and everything in between.
     </p>
-    <div class="hero-tags">
-      <span>Systems Design</span>
-      <span>Gameplay Prototyping</span>
-      <span>XR Interaction</span>
-      <span>Player Insight</span>
-    </div>
     <div class="hero-actions">
-      <a href="{{ '/about/' | relative_url }}" class="button button-primary">View Resume</a>
-      <a href="#selected-work" class="button button-secondary">Selected Work</a>
+      <a href="{{ '/about/' | relative_url }}" class="btn btn-primary">Resume</a>
+      <a href="#work" class="btn btn-outline">Projects</a>
     </div>
   </div>
-  <aside class="hero-card">
-    <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="Portrait of Alex Ziwei Niu" class="hero-avatar">
-    <div class="hero-card-body">
-      <p class="hero-card-label">Current focus</p>
-      <h2>{{ site.role }}</h2>
-      <p>{{ site.tagline }}</p>
-      <ul class="stat-list">
-        <li><strong>6</strong><span>Games</span></li>
-        <li><strong>3</strong><span>XR</span></li>
-        <li><strong>3</strong><span>Reviews</span></li>
-      </ul>
-    </div>
-  </aside>
-</section>
+</div>
 
-<section class="section-card" id="about-site">
-  <p class="eyebrow">About this site</p>
-  <p style="max-width: 64ch; color: var(--text-muted); line-height: 1.7;">
-    A direct-share portfolio designed to show how I think about systems, interaction, and player experience.
-    Start with the featured projects below, then open the resume for experience and tools.
-  </p>
-</section>
-
-<section class="section-card" id="selected-work">
-  <div class="section-heading section-heading-inline">
-    <div>
-      <p class="eyebrow">Featured projects</p>
-      <h2>Selected work</h2>
-    </div>
-    <a href="{{ '/games/' | relative_url }}" class="text-link">View all &rarr;</a>
+<section id="work">
+  <div class="section-header">
+    <h2>Selected projects</h2>
+    <a href="{{ '/games/' | relative_url }}" class="more-link">All games →</a>
   </div>
-  <div class="project-grid">
+  <div class="card-grid">
     {% assign featured_titles = "Mortise Mirage|Project Catch|Finite Space" | split: "|" %}
     {% assign en_games = site.games | where: "lang", "en" %}
     {% assign en_xr = site.xr | where: "lang", "en" %}
@@ -58,21 +29,23 @@ layout: default
     {% for featured_title in featured_titles %}
       {% for item in portfolio_items %}
         {% if item.title == featured_title %}
-    <a href="{{ item.url | relative_url }}" class="project-card">
+    <a href="{{ item.url | relative_url }}" class="card card-project">
       {% if item.thumbnail %}
-      <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}" loading="lazy">
+      <div class="card-img">
+        <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}" loading="lazy">
+      </div>
       {% endif %}
-      <div class="project-card-content">
-        <div class="card-meta-row">
-          <span class="pill">{{ item.category }}</span>
-          {% if item.date %}<span class="card-date">{{ item.date | date: "%Y" }}</span>{% endif %}
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="pill pill-{{ item.category | downcase }}">{{ item.category }}</span>
+          {% if item.date %}<span class="card-year">{{ item.date | date: "%Y" }}</span>{% endif %}
         </div>
         <h3>{{ item.title }}</h3>
-        <p>{{ item.description | default: item.excerpt | strip_html | truncatewords: 24 }}</p>
+        <p>{{ item.description | default: item.excerpt | strip_html | truncatewords: 20 }}</p>
         {% if item.tags %}
-        <div class="tag-row">
+        <div class="card-tags">
           {% for tag in item.tags limit:3 %}
-          <span class="tag">{{ tag }}</span>
+          <span>{{ tag }}</span>
           {% endfor %}
         </div>
         {% endif %}
@@ -84,77 +57,50 @@ layout: default
   </div>
 </section>
 
-<section class="section-card capabilities-card">
-  <p class="eyebrow">Strengths</p>
-  <h2>What I bring to a team</h2>
-  <div class="capability-grid" style="margin-top: 0.5rem;">
-    <article class="capability-item">
-      <h3>Mechanics & systems</h3>
-      <p>Designing player-facing rules, progression, and gameplay loops that are readable, testable, and expandable.</p>
-    </article>
-    <article class="capability-item">
-      <h3>Prototype implementation</h3>
-      <p>Turning design ideas into playable prototypes in Unity, Unreal, and web-ready formats to validate interaction quickly.</p>
-    </article>
-    <article class="capability-item">
-      <h3>Playtest iteration</h3>
-      <p>Using observation, feedback, and structured testing to identify friction points and improve moment-to-moment experience.</p>
-    </article>
-    <article class="capability-item">
-      <h3>Cross-functional execution</h3>
-      <p>Working across design, implementation, documentation, and communication to move ideas from concept to shippable form.</p>
-    </article>
-  </div>
-</section>
-
-<section class="section-card section-split">
+<section class="split-section">
   <div>
-    <p class="eyebrow">Resume snapshot</p>
     <h2>Experience</h2>
-    <ul class="timeline-list">
-      <li><strong>Happy Elements</strong> — gameplay innovation and content design since 2026.</li>
-      <li><strong>TouchFuture XR Game Studio</strong> — systems design, testing, Unity prototyping, and AI behavior evaluation.</li>
-      <li><strong>Digital Sky</strong> — user research, community feedback synthesis, and actionable tuning recommendations.</li>
+    <ul class="timeline">
+      <li><strong>Happy Elements</strong> — gameplay design, content, and innovation since 2026.</li>
+      <li><strong>TouchFuture XR Game Studio</strong> — systems design, Unity prototyping, AI behavior evaluation.</li>
+      <li><strong>Digital Sky</strong> — user research, community feedback, gameplay tuning.</li>
     </ul>
-    <a href="{{ '/about/' | relative_url }}" class="button button-secondary">Full resume</a>
+    <a href="{{ '/about/' | relative_url }}" class="btn btn-outline btn-sm">Full resume</a>
   </div>
-  <div class="mini-panel">
-    <p class="mini-panel-label">Tools & engines</p>
-    <div class="skill-cloud">
-      <span>Unity</span> <span>Unreal Engine</span> <span>Godot</span>
-      <span>C#</span> <span>C++</span> <span>Blueprint</span>
-      <span>Python</span> <span>SQL</span>
-      <span>Prompt Engineering</span> <span>WebGL</span>
+  <div>
+    <h2>Tools</h2>
+    <div class="tools-list">
+      <span>Unity</span> <span>Unreal Engine</span>
+      <span>C#</span> <span>Python</span>
+      <span>Godot</span> <span>Blueprints</span>
+      <span>WebGL</span>
     </div>
   </div>
 </section>
 
-<section class="section-card supplementary-section">
-  <div class="section-heading section-heading-inline">
-    <div>
-      <p class="eyebrow">Writing</p>
-      <h2>Game analysis</h2>
-    </div>
-    <a href="{{ '/reviews/' | relative_url }}" class="text-link">Browse &rarr;</a>
+<section class="review-section">
+  <div class="section-header">
+    <h2>Writing</h2>
+    <a href="{{ '/reviews/' | relative_url }}" class="more-link">All reviews →</a>
   </div>
-  <p class="supplementary-copy">
-    Occasional game reviews and analysis exploring motivation, pacing, feedback, and player-facing systems.
-  </p>
-  <div class="project-grid project-grid-compact supplementary-grid">
+  <p class="section-desc">Game analysis pieces on motivation, pacing, feedback, and what makes systems tick.</p>
+  <div class="card-grid card-grid-3">
     {% assign en_reviews = site.reviews | where: "lang", "en" | sort: 'date' | reverse %}
     {% for review in en_reviews limit:3 %}
     {% if review.title and review.title != "" and review.description and review.description != "" %}
-    <a href="{{ review.url | relative_url }}" class="project-card project-card-minor">
+    <a href="{{ review.url | relative_url }}" class="card card-review">
       {% if review.thumbnail %}
-      <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
+      <div class="card-img">
+        <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
+      </div>
       {% endif %}
-      <div class="project-card-content">
-        <div class="card-meta-row">
-          <span class="pill">{{ review.category }}</span>
-          {% if review.date %}<span class="card-date">{{ review.date | date: "%Y" }}</span>{% endif %}
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="pill pill-reviews">Review</span>
+          {% if review.date %}<span class="card-year">{{ review.date | date: "%Y" }}</span>{% endif %}
         </div>
         <h3>{{ review.title }}</h3>
-        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 16 }}</p>
+        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 14 }}</p>
       </div>
     </a>
     {% endif %}

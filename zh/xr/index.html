@@ -6,30 +6,28 @@ lang: zh
 ---
 
 <div class="list-page">
-  <header class="list-header">
-    <p class="eyebrow">XR experiments</p>
-    <h1>XR 项目</h1>
-    <p class="list-desc">VR 与混合现实领域的交互探索与原型实践。</p>
-  </header>
-
-  <div class="project-grid">
+  <h1>XR 项目</h1>
+  <p class="list-desc">VR 与混合现实领域的交互探索与原型实践。</p>
+  <div class="card-grid">
     {% assign zh_xr = site.zh_xr | sort: 'date' | reverse %}
     {% for project in zh_xr %}
-    <a href="{{ project.url | relative_url }}" class="project-card">
+    <a href="{{ project.url | relative_url }}" class="card card-project">
       {% if project.thumbnail %}
-      <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}" loading="lazy">
+      <div class="card-img">
+        <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}" loading="lazy">
+      </div>
       {% endif %}
-      <div class="project-card-content">
-        <div class="card-meta-row">
-          <span class="pill">{{ project.category }}</span>
-          {% if project.date %}<span class="card-date">{{ project.date | date: "%Y" }}</span>{% endif %}
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="pill pill-xr">{{ project.category }}</span>
+          {% if project.date %}<span class="card-year">{{ project.date | date: "%Y" }}</span>{% endif %}
         </div>
         <h3>{{ project.title }}</h3>
         <p>{{ project.description }}</p>
         {% if project.tags %}
-        <div class="tag-row">
+        <div class="card-tags">
           {% for tag in project.tags limit:3 %}
-          <span class="tag">{{ tag }}</span>
+          <span>{{ tag }}</span>
           {% endfor %}
         </div>
         {% endif %}
