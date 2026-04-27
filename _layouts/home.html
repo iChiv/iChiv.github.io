@@ -59,8 +59,11 @@ layout: default
     <a href="{{ '/games/' | relative_url }}" class="text-link">View all projects</a>
   </div>
   <div class="project-grid">
-    {% assign featured_work = site.games | concat: site.xr | sort: 'date' | reverse %}
-    {% for item in featured_work limit:4 %}
+    {% assign featured_titles = "Mortise Mirage|Project Catch|Finite Space" | split: "|" %}
+    {% assign portfolio_items = site.games | concat: site.xr %}
+    {% for featured_title in featured_titles %}
+      {% for item in portfolio_items %}
+        {% if item.title == featured_title %}
     <a href="{{ item.url | relative_url }}" class="project-card project-card-featured">
       {% if item.thumbnail %}
       <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}" loading="lazy">
@@ -81,6 +84,8 @@ layout: default
         {% endif %}
       </div>
     </a>
+        {% endif %}
+      {% endfor %}
     {% endfor %}
   </div>
 </section>
