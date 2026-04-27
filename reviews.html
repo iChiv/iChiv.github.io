@@ -5,13 +5,13 @@ permalink: /reviews/
 ---
 <div class="list-page">
   <h1>📝 Game Reviews</h1>
-  <p style="color: var(--text-secondary); margin-bottom: 2rem;">In-depth analysis and thoughts on games</p>
+  <p>In-depth analysis and thoughts on games.</p>
   <div class="project-grid">
     {% assign sorted_reviews = site.reviews | sort: 'date' | reverse %}
     {% for review in sorted_reviews %}
     <a href="{{ review.url | relative_url }}" class="project-card">
       {% if review.thumbnail %}
-      <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}">
+      <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
       {% else %}
       <div style="height: 200px; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center;">
         <span style="color: var(--text-light); font-size: 3rem;">📝</span>

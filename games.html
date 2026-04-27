@@ -5,13 +5,13 @@ permalink: /games/
 ---
 <div class="list-page">
   <h1>🎮 Games</h1>
-  <p style="color: var(--text-secondary); margin-bottom: 2rem;">A collection of game projects I've worked on</p>
+  <p>A collection of game projects I've worked on.</p>
   <div class="project-grid">
     {% assign sorted_games = site.games | sort: 'date' | reverse %}
     {% for game in sorted_games %}
     <a href="{{ game.url | relative_url }}" class="project-card">
       {% if game.thumbnail %}
-      <img src="{{ game.thumbnail | relative_url }}" alt="{{ game.title }}">
+      <img src="{{ game.thumbnail | relative_url }}" alt="{{ game.title }}" loading="lazy">
       {% else %}
       <div style="height: 200px; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center;">
         <span style="color: var(--text-light); font-size: 3rem;">🎮</span>

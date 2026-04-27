@@ -1,78 +1,169 @@
 ---
 layout: default
 ---
-<section class="hero-section">
-  <h1>Hi there!</h1>
-  <p class="subtitle">My name is Ziwei Niu, you can call me Alex.</p>
-  <p class="subtitle">I am a Game Designer / Developer</p>
-  <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="Alex" class="hero-avatar">
-  <p class="hero-intro">
-    Welcome to my portfolio. Here you'll find my games, XR projects, and game reviews.
-    Hope you enjoy exploring my work!
-  </p>
-  <a href="{{ '/about/' | relative_url }}" class="cta-button">About Me</a>
+<section class="hero-panel">
+  <div class="hero-copy">
+    <p class="eyebrow">Selected work & resume</p>
+    <h1>Game Systems / Gameplay Designer with prototyping instincts.</h1>
+    <p class="hero-lead">
+      I design player-facing systems, prototype interactions quickly, and translate ideas into testable game experiences across digital and XR formats.
+    </p>
+    <div class="hero-tags">
+      <span>Systems Design</span>
+      <span>Gameplay Prototyping</span>
+      <span>XR Interaction</span>
+      <span>Player Insight</span>
+    </div>
+    <div class="hero-actions">
+      <a href="{{ '/about/' | relative_url }}" class="button button-primary">View Resume</a>
+      <a href="#selected-work" class="button button-secondary">Browse Selected Work</a>
+    </div>
+  </div>
+  <aside class="hero-card">
+    <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="Portrait of Alex Ziwei Niu" class="hero-avatar">
+    <div class="hero-card-body">
+      <p class="hero-card-label">Current focus</p>
+      <h2>{{ site.role }}</h2>
+      <p>{{ site.tagline }}</p>
+      <ul class="stat-list">
+        <li><strong>6</strong><span>Game projects</span></li>
+        <li><strong>3</strong><span>XR experiments</span></li>
+        <li><strong>3</strong><span>Published reviews</span></li>
+      </ul>
+    </div>
+  </aside>
 </section>
 
-<section class="section-card">
-  <h2><a href="{{ '/games/' | relative_url }}">🎮 Games</a></h2>
+<section class="section-card intro-card">
+  <div class="section-heading">
+    <p class="eyebrow">What this site is for</p>
+    <h2>A direct-share portfolio for recruiters, collaborators, and teams.</h2>
+  </div>
+  <div class="two-column-copy">
+    <p>
+      This site is designed to quickly show how I think about systems, interaction, player experience, and implementation.
+      It combines portfolio projects, XR exploration, and game analysis into one compact reference.
+    </p>
+    <p>
+      If you are reviewing fit for a gameplay, systems, or prototyping role, start with the selected work below and then open the resume for experience, tools, and context.
+    </p>
+  </div>
+</section>
+
+<section class="section-card" id="selected-work">
+  <div class="section-heading section-heading-inline">
+    <div>
+      <p class="eyebrow">Selected work</p>
+      <h2>Recent gameplay and XR projects</h2>
+    </div>
+    <a href="{{ '/games/' | relative_url }}" class="text-link">View all projects</a>
+  </div>
   <div class="project-grid">
-    {% for game in site.games limit:3 %}
-    <a href="{{ game.url | relative_url }}" class="project-card">
-      {% if game.thumbnail %}
-      <img src="{{ game.thumbnail | relative_url }}" alt="{{ game.title }}">
-      {% else %}
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23f3f4f6' width='400' height='200'/%3E%3Ctext fill='%239ca3af' font-family='sans-serif' font-size='16' x='50%25' y='50%25' text-anchor='middle' dy='.3em'%3E{{ game.title }}%3C/text%3E%3C/svg%3E" alt="{{ game.title }}">
+    {% assign featured_work = site.games | concat: site.xr | sort: 'date' | reverse %}
+    {% for item in featured_work limit:4 %}
+    <a href="{{ item.url | relative_url }}" class="project-card project-card-featured">
+      {% if item.thumbnail %}
+      <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}" loading="lazy">
       {% endif %}
       <div class="project-card-content">
-        <h3>{{ game.title }}</h3>
-        <p>{{ game.description | default: game.excerpt | strip_html | truncatewords: 25 }}</p>
-        {% if game.date %}
-        <p class="date">{{ game.date | date: "%B %Y" }}</p>
+        <div class="card-meta-row">
+          <span class="pill">{{ item.category }}</span>
+          {% if item.date %}<span class="card-date">{{ item.date | date: "%Y" }}</span>{% endif %}
+        </div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description | default: item.excerpt | strip_html | truncatewords: 28 }}</p>
+        {% if item.tags %}
+        <div class="tag-row">
+          {% for tag in item.tags limit:3 %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
         {% endif %}
       </div>
     </a>
     {% endfor %}
   </div>
-  <a href="{{ '/games/' | relative_url }}" class="more-link">View all games</a>
 </section>
 
-<section class="section-card">
-  <h2><a href="{{ '/xr/' | relative_url }}">🥽 XR Projects</a></h2>
-  <div class="project-grid">
-    {% for project in site.xr limit:3 %}
-    <a href="{{ project.url | relative_url }}" class="project-card">
-      {% if project.thumbnail %}
-      <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}">
-      {% else %}
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23f3f4f6' width='400' height='200'/%3E%3Ctext fill='%239ca3af' font-family='sans-serif' font-size='16' x='50%25' y='50%25' text-anchor='middle' dy='.3em'%3E{{ project.title }}%3C/text%3E%3C/svg%3E" alt="{{ project.title }}">
-      {% endif %}
-      <div class="project-card-content">
-        <h3>{{ project.title }}</h3>
-        <p>{{ project.description | default: project.excerpt | strip_html | truncatewords: 25 }}</p>
-        {% if project.date %}
-        <p class="date">{{ project.date | date: "%B %Y" }}</p>
-        {% endif %}
-      </div>
-    </a>
-    {% endfor %}
+<section class="section-card capabilities-card">
+  <div class="section-heading">
+    <p class="eyebrow">Strengths</p>
+    <h2>What I bring to a team</h2>
   </div>
-  <a href="{{ '/xr/' | relative_url }}" class="more-link">View all XR projects</a>
+  <div class="capability-grid">
+    <article class="capability-item">
+      <h3>Systems thinking</h3>
+      <p>Designing rules, progression, player loops, and interaction logic that stay readable while supporting depth.</p>
+    </article>
+    <article class="capability-item">
+      <h3>Rapid prototyping</h3>
+      <p>Building and iterating playable prototypes in Unity, Unreal, and lightweight web-ready formats to validate ideas early.</p>
+    </article>
+    <article class="capability-item">
+      <h3>XR interaction</h3>
+      <p>Exploring embodied input, immersion, and AI-assisted interaction patterns in VR/XR contexts.</p>
+    </article>
+    <article class="capability-item">
+      <h3>Player perspective</h3>
+      <p>Using analysis, community observation, and review writing to reason about motivation, friction, and emotional payoff.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section-card section-split">
+  <div>
+    <div class="section-heading">
+      <p class="eyebrow">Resume snapshot</p>
+      <h2>Experience across design, prototyping, research, and live player feedback.</h2>
+    </div>
+    <ul class="timeline-list">
+      <li><strong>TouchFuture XR Game Studio</strong> — systems design, testing, Unity prototyping, and AI behavior evaluation.</li>
+      <li><strong>Digital Sky</strong> — user research, community feedback synthesis, and actionable tuning recommendations.</li>
+      <li><strong>Goldsmiths, University of London</strong> — cross-platform game design and development work in PC and VR contexts.</li>
+    </ul>
+    <a href="{{ '/about/' | relative_url }}" class="button button-secondary">Open full resume</a>
+  </div>
+  <div class="mini-panel">
+    <p class="mini-panel-label">Tools & engines</p>
+    <div class="skill-cloud">
+      <span>Unity</span>
+      <span>Unreal Engine</span>
+      <span>Godot</span>
+      <span>C#</span>
+      <span>C++</span>
+      <span>Blueprint</span>
+      <span>Python</span>
+      <span>SQL</span>
+      <span>Prompt Engineering</span>
+      <span>WebGL</span>
+    </div>
+  </div>
 </section>
 
 <section class="section-card">
-  <h2><a href="{{ '/reviews/' | relative_url }}">📝 Game Reviews</a></h2>
-  <div class="project-grid">
-    {% for review in site.reviews limit:3 %}
+  <div class="section-heading section-heading-inline">
+    <div>
+      <p class="eyebrow">Writing & analysis</p>
+      <h2>Game reviews as design thinking</h2>
+    </div>
+    <a href="{{ '/reviews/' | relative_url }}" class="text-link">View all writing</a>
+  </div>
+  <div class="project-grid project-grid-compact">
+    {% assign latest_reviews = site.reviews | sort: 'date' | reverse %}
+    {% for review in latest_reviews limit:3 %}
     <a href="{{ review.url | relative_url }}" class="project-card">
+      {% if review.thumbnail %}
+      <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
+      {% endif %}
       <div class="project-card-content">
+        <div class="card-meta-row">
+          <span class="pill">Review</span>
+          {% if review.date %}<span class="card-date">{{ review.date | date: "%Y" }}</span>{% endif %}
+        </div>
         <h3>{{ review.title }}</h3>
-        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 25 }}</p>
-        {% if review.date %}
-        <p class="date">{{ review.date | date: "%B %Y" }}</p>
-        {% endif %}
+        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 24 }}</p>
       </div>
     </a>
     {% endfor %}
   </div>
-  <a href="{{ '/reviews/' | relative_url }}" class="more-link">View all reviews</a>
 </section>

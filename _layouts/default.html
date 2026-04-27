@@ -2,42 +2,46 @@
 layout: default
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   
-  <!-- Fonts -->
+  <link rel="icon" type="image/jpeg" href="{{ '/assets/images/avatar.jpg' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   {% feed_meta %}
   {% seo %}
 </head>
 <body>
-  <header>
-    <nav class="navbar">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary">
       <div class="nav-container">
         <a href="{{ '/' | relative_url }}" class="logo">
           <span class="logo-text">{{ site.author }}</span>
-          <span class="logo-subtitle">Game Developer</span>
+          <span class="logo-subtitle">{{ site.role | default: 'Game Portfolio' }}</span>
         </a>
         
-        <button class="nav-toggle" aria-label="Toggle navigation">
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
           <span></span>
           <span></span>
           <span></span>
         </button>
         
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item"><a href="{{ '/' | relative_url }}" class="nav-link">Home</a></li>
           <li class="nav-item dropdown">
             <a href="{{ '/games/' | relative_url }}" class="nav-link">Games</a>
             <ul class="dropdown-menu">
-              {% for game in site.games %}
+              {% assign sorted_games = site.games | sort: 'date' | reverse %}
+              {% for game in sorted_games %}
               <li><a href="{{ game.url | relative_url }}">{{ game.title }}</a></li>
               {% endfor %}
             </ul>
@@ -45,48 +49,57 @@ layout: default
           <li class="nav-item dropdown">
             <a href="{{ '/xr/' | relative_url }}" class="nav-link">XR</a>
             <ul class="dropdown-menu">
-              {% for project in site.xr %}
+              {% assign sorted_xr = site.xr | sort: 'date' | reverse %}
+              {% for project in sorted_xr %}
               <li><a href="{{ project.url | relative_url }}">{{ project.title }}</a></li>
               {% endfor %}
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a href="{{ '/reviews/' | relative_url }}" class="nav-link">Reviews</a>
-            <ul class="dropdown-menu">
-              {% for review in site.reviews %}
-              <li><a href="{{ review.url | relative_url }}">{{ review.title }}</a></li>
-              {% endfor %}
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="{{ '/about/' | relative_url }}" class="nav-link">About</a>
-          </li>
+          <li class="nav-item"><a href="{{ '/reviews/' | relative_url }}" class="nav-link">Writing</a></li>
+          <li class="nav-item"><a href="{{ '/about/' | relative_url }}" class="nav-link">Resume</a></li>
         </ul>
       </div>
     </nav>
   </header>
   
-  <main>
+  <main id="main-content">
     {{ content }}
   </main>
   
-  <footer>
+  <footer class="site-footer">
     <div class="footer-content">
-      <div class="contact-info">
-        <h3>Contact</h3>
-        <p>{{ site.email }}</p>
+      <div>
+        <p class="footer-title">Open to gameplay, systems, and prototyping opportunities.</p>
+        <p class="footer-subtitle">Best shared directly as a resume + portfolio.</p>
       </div>
-      <div class="copyright">
-        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        {% if site.social.github %}
+        <a href="{{ site.social.github }}" target="_blank" rel="noopener">GitHub</a>
+        {% endif %}
       </div>
     </div>
   </footer>
   
   <script>
-    // Mobile menu toggle
-    document.querySelector('.nav-toggle').addEventListener('click', () => {
-      document.querySelector('.nav-menu').classList.toggle('active');
-    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+        navMenu.classList.toggle('active');
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.focus();
+        }
+      });
+    }
   </script>
 </body>
 </html>

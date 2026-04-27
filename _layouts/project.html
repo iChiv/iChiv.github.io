@@ -25,7 +25,7 @@ layout: default
   </header>
   
   {% if page.thumbnail %}
-  <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="project-cover">
+  <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}" class="project-cover" loading="eager">
   {% endif %}
   
   <div class="project-content">

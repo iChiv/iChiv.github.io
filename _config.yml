@@ -1,8 +1,13 @@
 title: Alex Ziwei Niu
-description: Game Developer
+description: Gameplay and systems design portfolio for Alex Ziwei Niu
 author: Alex Ziwei Niu
 email: zzzv0325@gmail.com
 url: https://iChiv.github.io
+lang: en
+role: Game Systems / Gameplay Designer
+tagline: Designing systems, prototyping interactions, and building player-first game experiences.
+social:
+  github: https://github.com/iChiv
 
 collections:
   games:
@@ -32,7 +37,7 @@ defaults:
       path: ""
       type: "reviews"
     values:
-      layout: "review"
+      layout: "project"
       category: "Reviews"
 
 markdown: kramdown
