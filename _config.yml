@@ -12,13 +12,13 @@ social:
 collections:
   games:
     output: true
-    permalink: /games/:name/
+    permalink: /games/:slug/
   xr:
     output: true
-    permalink: /xr/:name/
+    permalink: /xr/:slug/
   reviews:
     output: true
-    permalink: /reviews/:name/
+    permalink: /reviews/:slug/
 
 defaults:
   - scope:
