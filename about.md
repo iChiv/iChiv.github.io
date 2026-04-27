@@ -57,6 +57,16 @@ permalink: /about/
 
     <div class="resume-item">
       <div class="item-header">
+        <span class="title">玩法策划 - 乐元素 Happy Elements</span>
+        <span class="date">2026.2 - 至今</span>
+      </div>
+      <ul>
+        <li>负责玩法创新与内容填充，参与新玩法方向探索与系统设计迭代。</li>
+      </ul>
+    </div>
+
+    <div class="resume-item">
+      <div class="item-header">
         <span class="title">游戏策划 - 好未来 TouchFuture XR 游戏工作室</span>
         <span class="date">2025.4 - 2025.11</span>
       </div>
