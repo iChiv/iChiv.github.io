@@ -60,7 +60,9 @@ layout: default
   </div>
   <div class="project-grid">
     {% assign featured_titles = "Mortise Mirage|Project Catch|Finite Space" | split: "|" %}
-    {% assign portfolio_items = site.games | concat: site.xr %}
+    {% assign en_games = site.games | where: "lang", "en" %}
+    {% assign en_xr = site.xr | where: "lang", "en" %}
+    {% assign portfolio_items = en_games | concat: en_xr %}
     {% for featured_title in featured_titles %}
       {% for item in portfolio_items %}
         {% if item.title == featured_title %}
@@ -157,8 +159,9 @@ layout: default
     I also write game reviews and analysis pieces to sharpen my understanding of motivation, pacing, feedback, and player-facing systems.
   </p>
   <div class="project-grid project-grid-compact supplementary-grid">
-    {% assign latest_reviews = site.reviews | sort: 'date' | reverse %}
-    {% for review in latest_reviews limit:3 %}
+    {% assign en_reviews = site.reviews | where: "lang", "en" | sort: 'date' | reverse %}
+    {% for review in en_reviews limit:3 %}
+    {% if review.title and review.title != "" %}
     <a href="{{ review.url | relative_url }}" class="project-card project-card-minor">
       {% if review.thumbnail %}
       <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
@@ -172,6 +175,7 @@ layout: default
         <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 20 }}</p>
       </div>
     </a>
+    {% endif %}
     {% endfor %}
   </div>
 </section>

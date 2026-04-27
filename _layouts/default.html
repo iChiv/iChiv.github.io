@@ -63,18 +63,22 @@ layout: default
           <li class="nav-item dropdown">
             <a href="{{ '/games/' | relative_url }}" class="nav-link">Games</a>
             <ul class="dropdown-menu">
-              {% assign sorted_games = site.games | sort: 'date' | reverse %}
+              {% assign sorted_games = site.games | where: "lang", "en" | sort: 'date' | reverse %}
               {% for game in sorted_games %}
+              {% if game.title and game.title != "" %}
               <li><a href="{{ game.url | relative_url }}">{{ game.title }}</a></li>
+              {% endif %}
               {% endfor %}
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a href="{{ '/xr/' | relative_url }}" class="nav-link">XR</a>
             <ul class="dropdown-menu">
-              {% assign sorted_xr = site.xr | sort: 'date' | reverse %}
+              {% assign sorted_xr = site.xr | where: "lang", "en" | sort: 'date' | reverse %}
               {% for project in sorted_xr %}
+              {% if project.title and project.title != "" %}
               <li><a href="{{ project.url | relative_url }}">{{ project.title }}</a></li>
+              {% endif %}
               {% endfor %}
             </ul>
           </li>

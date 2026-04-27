@@ -5,24 +5,31 @@ permalink: /reviews/
 lang: en
 ---
 <div class="list-page">
-  <h1>📝 Game Reviews</h1>
-  <p>In-depth analysis and thoughts on games.</p>
+  <div class="list-header">
+    <p class="eyebrow">Reviews & analysis</p>
+    <h1>Writing</h1>
+    <p class="list-desc">Game design analysis pieces exploring motivation, pacing, feedback systems, and player-facing design.</p>
+  </div>
   <div class="project-grid">
-    {% assign sorted_reviews = site.reviews | sort: 'date' | reverse %}
+    {% assign sorted_reviews = site.reviews | where: "lang", "en" | sort: 'date' | reverse %}
     {% for review in sorted_reviews %}
     <a href="{{ review.url | relative_url }}" class="project-card">
       {% if review.thumbnail %}
       <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
-      {% else %}
-      <div style="height: 200px; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center;">
-        <span style="color: var(--text-light); font-size: 3rem;">📝</span>
-      </div>
       {% endif %}
       <div class="project-card-content">
+        <div class="card-meta-row">
+          <span class="pill">{{ review.category }}</span>
+          {% if review.date %}<span class="card-date">{{ review.date | date: "%Y" }}</span>{% endif %}
+        </div>
         <h3>{{ review.title }}</h3>
         <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 30 }}</p>
-        {% if review.date %}
-        <p class="date">{{ review.date | date: "%B %Y" }}</p>
+        {% if review.tags %}
+        <div class="tag-row">
+          {% for tag in review.tags limit:3 %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
         {% endif %}
       </div>
     </a>
