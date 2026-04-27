@@ -1,0 +1,40 @@
+---
+layout: page
+title: 游戏评测
+permalink: /zh/reviews/
+lang: zh
+---
+
+<div class="list-page">
+  <header class="list-header">
+    <p class="eyebrow">Reviews & analysis</p>
+    <h1>游戏评测</h1>
+    <p class="list-desc">通过对游戏设计的拆解与分析，加深对动机、节奏、反馈和玩家系统的理解。</p>
+  </header>
+
+  <div class="project-grid">
+    {% assign zh_reviews = site.zh_reviews | sort: 'date' | reverse %}
+    {% for review in zh_reviews %}
+    <a href="{{ review.url | relative_url }}" class="project-card">
+      {% if review.thumbnail %}
+      <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
+      {% endif %}
+      <div class="project-card-content">
+        <div class="card-meta-row">
+          <span class="pill">{{ review.category }}</span>
+          {% if review.date %}<span class="card-date">{{ review.date | date: "%Y" }}</span>{% endif %}
+        </div>
+        <h3>{{ review.title }}</h3>
+        <p>{{ review.description }}</p>
+        {% if review.tags %}
+        <div class="tag-row">
+          {% for tag in review.tags limit:3 %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>

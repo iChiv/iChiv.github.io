@@ -26,16 +26,39 @@ layout: default
       <div class="nav-container">
         <a href="{{ '/' | relative_url }}" class="logo">
           <span class="logo-text">{{ site.author }}</span>
-          <span class="logo-subtitle">{{ site.role | default: 'Game Portfolio' }}</span>
+          <span class="logo-subtitle">{% if page.lang == 'zh' %}{{ site.role_zh }}{% else %}{{ site.role | default: 'Game Portfolio' }}{% endif %}</span>
         </a>
         
-        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <button class="nav-toggle" type="button" aria-label="{% if page.lang == 'zh' %}切换导航{% else %}Toggle navigation{% endif %}" aria-expanded="false" aria-controls="nav-menu">
           <span></span>
           <span></span>
           <span></span>
         </button>
         
         <ul class="nav-menu" id="nav-menu">
+          {% if page.lang == 'zh' %}
+          <li class="nav-item"><a href="{{ '/zh/' | relative_url }}" class="nav-link">首页</a></li>
+          <li class="nav-item dropdown">
+            <a href="{{ '/zh/games/' | relative_url }}" class="nav-link">游戏</a>
+            <ul class="dropdown-menu">
+              {% assign sorted_games = site.zh_games | sort: 'date' | reverse %}
+              {% for game in sorted_games %}
+              <li><a href="{{ game.url | relative_url }}">{{ game.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="{{ '/zh/xr/' | relative_url }}" class="nav-link">XR</a>
+            <ul class="dropdown-menu">
+              {% assign sorted_xr = site.zh_xr | sort: 'date' | reverse %}
+              {% for project in sorted_xr %}
+              <li><a href="{{ project.url | relative_url }}">{{ project.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li class="nav-item"><a href="{{ '/zh/reviews/' | relative_url }}" class="nav-link">评测</a></li>
+          <li class="nav-item"><a href="{{ '/zh/about/' | relative_url }}" class="nav-link">简历</a></li>
+          {% else %}
           <li class="nav-item"><a href="{{ '/' | relative_url }}" class="nav-link">Home</a></li>
           <li class="nav-item dropdown">
             <a href="{{ '/games/' | relative_url }}" class="nav-link">Games</a>
@@ -57,6 +80,14 @@ layout: default
           </li>
           <li class="nav-item"><a href="{{ '/reviews/' | relative_url }}" class="nav-link">Writing</a></li>
           <li class="nav-item"><a href="{{ '/about/' | relative_url }}" class="nav-link">Resume</a></li>
+          {% endif %}
+          <li class="nav-item lang-switch-item">
+            {% if page.lang == 'zh' %}
+            <a href="{% assign en_url = page.url | remove_first: '/zh' %}{% if en_url == '' or en_url == '/' %}{{ '/' | relative_url }}{% else %}{{ en_url | relative_url }}{% endif %}" class="nav-link lang-switch">🇬🇧 English</a>
+            {% else %}
+            <a href="{% assign zh_url = '/zh' | append: page.url | remove: '//' %}{% if page.url == '/' %}{{ '/zh/' | relative_url }}{% else %}{{ zh_url | relative_url }}{% endif %}" class="nav-link lang-switch">🇨🇳 中文</a>
+            {% endif %}
+          </li>
         </ul>
       </div>
     </nav>
@@ -69,14 +100,17 @@ layout: default
   <footer class="site-footer">
     <div class="footer-content">
       <div>
-        <p class="footer-title">Open to gameplay, systems, and prototyping opportunities.</p>
-        <p class="footer-subtitle">Best shared directly as a resume + portfolio.</p>
+        <p class="footer-title">{% if page.lang == 'zh' %}对玩法、系统和原型方向持开放态度。{% else %}Open to gameplay, systems, and prototyping opportunities.{% endif %}</p>
+        <p class="footer-subtitle">{% if page.lang == 'zh' %}作为作品集 + 简历直接分享给合作伙伴。{% else %}Best shared directly as a resume + portfolio.{% endif %}</p>
       </div>
       <div class="footer-links">
         <a href="mailto:{{ site.email }}">{{ site.email }}</a>
         {% if site.social.github %}
         <a href="{{ site.social.github }}" target="_blank" rel="noopener">GitHub</a>
         {% endif %}
+        <a href="{% if page.lang == 'zh' %}{{ '/' | relative_url }}{% else %}{{ '/zh/' | relative_url }}{% endif %}" class="footer-lang-link">
+          {% if page.lang == 'zh' %}🇬🇧 English{% else %}🇨🇳 中文{% endif %}
+        </a>
       </div>
     </div>
   </footer>

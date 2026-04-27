@@ -1,0 +1,177 @@
+---
+layout: default
+---
+<section class="hero-panel">
+  <div class="hero-copy">
+    <p class="eyebrow">精选作品与履历</p>
+    <h1>专注原型验证、交互设计与玩家体验的玩法策划。</h1>
+    <p class="hero-lead">
+      设计玩家驱动的系统，快速验证交互假设，将想法转化为可测试的游戏体验——涵盖数字游戏与 XR 平台。
+    </p>
+    <div class="hero-tags">
+      <span>系统设计</span>
+      <span>玩法原型</span>
+      <span>XR 交互</span>
+      <span>玩家洞察</span>
+    </div>
+    <div class="hero-actions">
+      <a href="{{ '/zh/about/' | relative_url }}" class="button button-primary">查看简历</a>
+      <a href="#selected-work" class="button button-secondary">浏览精选项目</a>
+    </div>
+  </div>
+  <aside class="hero-card">
+    <img src="{{ '/assets/images/avatar.jpg' | relative_url }}" alt="Alex Ziwei Niu 头像" class="hero-avatar">
+    <div class="hero-card-body">
+      <p class="hero-card-label">当前方向</p>
+      <h2>{{ site.role_zh }}</h2>
+      <p>{{ site.tagline_zh }}</p>
+      <ul class="stat-list">
+        <li><strong>6</strong><span>游戏项目</span></li>
+        <li><strong>3</strong><span>XR 实验</span></li>
+        <li><strong>3</strong><span>游戏评测</span></li>
+      </ul>
+    </div>
+  </aside>
+</section>
+
+<section class="section-card intro-card">
+  <div class="section-heading">
+    <p class="eyebrow">关于本站</p>
+    <h2>一份直投式作品集，面向合作伙伴与团队。</h2>
+  </div>
+  <div class="two-column-copy">
+    <p>
+      本站旨在快速展示我在系统设计、交互体验、玩家洞察和原型实现方面的思维方式。
+      它将项目作品、XR 探索和游戏分析整合为一份紧凑的参考档案。
+    </p>
+    <p>
+      如果你正在评估我是否适合玩法、系统或原型方向的角色，建议从下方的精选项目开始，再到简历中了解经验、工具和背景。
+    </p>
+  </div>
+</section>
+
+<section class="section-card" id="selected-work">
+  <div class="section-heading section-heading-inline">
+    <div>
+      <p class="eyebrow">精选项目</p>
+      <h2>近期玩法与 XR 作品</h2>
+    </div>
+    <a href="{{ '/zh/games/' | relative_url }}" class="text-link">查看全部项目</a>
+  </div>
+  <div class="project-grid">
+    {% assign featured_titles = "榫卯幻境|Project Catch|Finite Space" | split: "|" %}
+    {% assign portfolio_items = site.zh_games | concat: site.zh_xr %}
+    {% for featured_title in featured_titles %}
+      {% for item in portfolio_items %}
+        {% if item.title == featured_title %}
+    <a href="{{ item.url | relative_url }}" class="project-card project-card-featured">
+      {% if item.thumbnail %}
+      <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}" loading="lazy">
+      {% endif %}
+      <div class="project-card-content">
+        <div class="card-meta-row">
+          <span class="pill">{{ item.category }}</span>
+          {% if item.date %}<span class="card-date">{{ item.date | date: "%Y" }}</span>{% endif %}
+        </div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description | default: item.excerpt | strip_html | truncatewords: 28 }}</p>
+        {% if item.tags %}
+        <div class="tag-row">
+          {% for tag in item.tags limit:3 %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </a>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-card capabilities-card">
+  <div class="section-heading">
+    <p class="eyebrow">能力方向</p>
+    <h2>我能为团队带来的价值</h2>
+  </div>
+  <div class="capability-grid">
+    <article class="capability-item">
+      <h3>机制与系统设计</h3>
+      <p>设计可读、可测、可扩展的玩家规则、成长路径和玩法循环。</p>
+    </article>
+    <article class="capability-item">
+      <h3>原型快速实现</h3>
+      <p>在 Unity、Unreal 及 Web 平台上将设计想法快速转化为可玩的交互原型，验证核心玩法假设。</p>
+    </article>
+    <article class="capability-item">
+      <h3>测试驱动迭代</h3>
+      <p>通过观察、反馈和结构化测试发现体验摩擦点，优化玩家的每一刻交互感受。</p>
+    </article>
+    <article class="capability-item">
+      <h3>跨职能协作</h3>
+      <p>在设计、实现、文档和沟通之间灵活切换，推动想法从概念到可交付形态。</p>
+    </article>
+  </div>
+</section>
+
+<section class="section-card section-split">
+  <div>
+    <div class="section-heading">
+      <p class="eyebrow">履历概览</p>
+      <h2>在系统设计、原型验证与玩家研究领域的实践经验。</h2>
+    </div>
+    <ul class="timeline-list">
+      <li><strong>乐元素</strong> — 2026 年起负责玩法创新与内容填充。</li>
+      <li><strong>好未来 TouchFuture XR 游戏工作室</strong> — 系统设计、Unity 原型与 AI 行为评估。</li>
+      <li><strong>数字天空</strong> — 用户研究与社群反馈分析，输出可落地的玩法调优建议。</li>
+    </ul>
+    <a href="{{ '/zh/about/' | relative_url }}" class="button button-secondary">查看完整简历</a>
+  </div>
+  <div class="mini-panel">
+    <p class="mini-panel-label">工具与引擎</p>
+    <div class="skill-cloud">
+      <span>Unity</span>
+      <span>Unreal Engine</span>
+      <span>Godot</span>
+      <span>C#</span>
+      <span>C++</span>
+      <span>Blueprint</span>
+      <span>Python</span>
+      <span>SQL</span>
+      <span>Prompt Engineering</span>
+      <span>WebGL</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-card supplementary-section">
+  <div class="section-heading section-heading-inline">
+    <div>
+      <p class="eyebrow">写作与思考</p>
+      <h2>通过游戏评测与分析支撑设计思维。</h2>
+    </div>
+    <a href="{{ '/zh/reviews/' | relative_url }}" class="text-link">浏览写作</a>
+  </div>
+  <p class="supplementary-copy">
+    我也会写游戏评测与分析文章，以加深对动机、节奏、反馈和玩家面向系统的理解。
+  </p>
+  <div class="project-grid project-grid-compact supplementary-grid">
+    {% assign latest_reviews = site.zh_reviews | sort: 'date' | reverse %}
+    {% for review in latest_reviews limit:3 %}
+    <a href="{{ review.url | relative_url }}" class="project-card project-card-minor">
+      {% if review.thumbnail %}
+      <img src="{{ review.thumbnail | relative_url }}" alt="{{ review.title }}" loading="lazy">
+      {% endif %}
+      <div class="project-card-content">
+        <div class="card-meta-row">
+          <span class="pill">{{ review.category }}</span>
+          {% if review.date %}<span class="card-date">{{ review.date | date: "%Y" }}</span>{% endif %}
+        </div>
+        <h3>{{ review.title }}</h3>
+        <p>{{ review.description | default: review.excerpt | strip_html | truncatewords: 20 }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>

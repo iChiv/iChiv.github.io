@@ -1,11 +1,15 @@
 title: Alex Ziwei Niu
 description: "Gameplay Designer focused on prototyping, interaction, and player-facing systems"
+description_zh: "专注原型验证、交互设计与玩家体验的玩法策划"
 author: Alex Ziwei Niu
 email: zzzv0325@gmail.com
 url: https://iChiv.github.io
 lang: en
+langs: [en, zh]
 role: Game Systems / Gameplay Designer
+role_zh: 系统与玩法策划
 tagline: Designing systems, prototyping interactions, and building player-first game experiences.
+tagline_zh: 专注玩法系统、原型验证与玩家驱动的设计方法
 social:
   github: https://github.com/iChiv
 
@@ -19,6 +23,15 @@ collections:
   reviews:
     output: true
     permalink: /reviews/:slug/
+  zh_games:
+    output: true
+    permalink: /zh/games/:slug/
+  zh_xr:
+    output: true
+    permalink: /zh/xr/:slug/
+  zh_reviews:
+    output: true
+    permalink: /zh/reviews/:slug/
 
 defaults:
   - scope:
@@ -27,18 +40,42 @@ defaults:
     values:
       layout: "project"
       category: "Games"
+      lang: "en"
   - scope:
       path: ""
       type: "xr"
     values:
       layout: "project"
       category: "XR"
+      lang: "en"
   - scope:
       path: ""
       type: "reviews"
     values:
       layout: "project"
       category: "Reviews"
+      lang: "en"
+  - scope:
+      path: ""
+      type: "zh_games"
+    values:
+      layout: "project"
+      category: "游戏"
+      lang: "zh"
+  - scope:
+      path: ""
+      type: "zh_xr"
+    values:
+      layout: "project"
+      category: "XR"
+      lang: "zh"
+  - scope:
+      path: ""
+      type: "zh_reviews"
+    values:
+      layout: "project"
+      category: "评测"
+      lang: "zh"
 
 markdown: kramdown
 highlighter: rouge
