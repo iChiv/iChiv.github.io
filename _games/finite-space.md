@@ -5,6 +5,7 @@ category: Games
 date: 2024-01-02
 description: "A space survival action game about resource collection, building construction, and constrained decision-making"
 thumbnail: /assets/images/projects/finite-space-1.png
+lang: en
 tags: [Action, WebGL, Unity, Prototype]
 links:
   - title: "Watch Gameplay"

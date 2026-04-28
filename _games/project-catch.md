@@ -5,6 +5,7 @@ category: Games
 date: 2022-08-07
 description: "A collaborative puzzle game featuring photo-taking and projection mechanics"
 thumbnail: /assets/images/projects/project-catch-cover.png
+lang: en
 tags: [Puzzle, Unity, VR]
 links:
   - title: "Watch Gameplay"

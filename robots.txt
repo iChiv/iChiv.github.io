@@ -1,3 +1,5 @@
+# Direct-share portfolio — not SEO-exposed at this stage.
+# Sitemap remains accessible for manual inspection.
 User-agent: *
 Disallow: /
 

@@ -5,6 +5,7 @@ category: XR
 date: 2024-03-06
 description: "A VR immersive puzzle game centered on traditional mortise and tenon woodwork structures"
 thumbnail: /assets/images/xr/mortise-mirage-cover.png
+lang: en
 tags: [VR, Puzzle, Meta Quest, Cultural]
 links:
   - title: "Watch Gameplay"
