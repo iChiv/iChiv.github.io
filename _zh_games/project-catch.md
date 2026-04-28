@@ -3,7 +3,7 @@ title: "Project Catch"
 layout: project
 category: Games
 date: 2022-08-07
-description: "一款以"拍照-投影"为核心机制的协作解谜游戏"
+description: '一款以"拍照-投影"为核心机制的协作解谜游戏'
 thumbnail: /assets/images/projects/project-catch-cover.png
 tags: [解谜, Unity, VR]
 lang: zh
