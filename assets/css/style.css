@@ -463,6 +463,126 @@ main {
   font-size: 0.92rem;
 }
 
+.about-links {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+.about-links a {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+}
+
+/* ── Core Strengths (中文) ── */
+
+.strengths-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 2rem;
+}
+.strength-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border: 1px solid rgba(108, 140, 255, 0.15);
+}
+
+/* ── Resume items ── */
+
+.resume-item {
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border-left: 2px solid var(--accent-subtle);
+}
+.resume-item ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+}
+.resume-item li {
+  margin-bottom: 0.3rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.resume-item li::marker { color: var(--accent); }
+.resume-item p {
+  margin: 0.4rem 0 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.item-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.item-header strong {
+  font-size: 0.92rem;
+  color: var(--text);
+}
+.item-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  white-space: nowrap;
+}
+
+/* ── Skill groups (分类技能) ── */
+
+.skill-group {
+  display: grid;
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+.skill-category {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.skill-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 6.5rem;
+  font-family: 'DM Mono', monospace;
+}
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.skill-items span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.4rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 500;
+  background: var(--accent-subtle);
+  color: var(--accent);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: -0.02em;
+}
+
 /* ── Footer ── */
 
 .site-footer {
